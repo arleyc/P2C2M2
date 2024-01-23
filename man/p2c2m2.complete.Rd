@@ -87,7 +87,10 @@ p2c2m2.complete(path = "/home/user/Desktop/", xml.file = "beast.xml",
   The results of a \pkg{P2C2M2} run comprise test statistics, measures 
   of data dispersion and deviations marked at several quantile levels 
   (analogous to P-values under different alpha-levels in a parametric 
-  simulation) for each gene under study and of the sum of all genes.
+  simulation) for each gene under study and of the sum of all genes. If
+  error rates are estimated (using the option error.rate = TRUE), the
+  proportion of pods that significantly reject the null, multi-species
+  coalescent model are calculated for each gene and across genes.
 }
 
 \author{
