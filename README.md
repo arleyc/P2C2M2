@@ -9,7 +9,7 @@
 P2C2M2 provides functions to read default output from BEAST2 (….) and
 starBEAST2 (….) and conduct posterior predictive checks of coalescent
 models (Reid et al. 2014) based on the functions originally provided in
-the P2C2M package (Gruenstaeudl et al….) to parse tree and xml files
+the P2C2M package (Gruenstaeudl et al. 2016) to parse tree and xml files
 from BEAST and \*BEAST. It also implements estimation of type-I (false
 -positive) error rates using pseudo-observed datasets (“pods”) sampled
 from the posterior predictive distribution.
@@ -72,41 +72,60 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2,
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]                NDC[2]              
-#> 26 "-8.31 (±34.92) n.s."  "-1.33 (±9.45) n.s."
-#> 29 "-23.76 (±28.02) n.s." "-0.33 (±6.35) n.s."
-#> 47 "13.5 (±18.6) n.s."    "1.67 (±6.66) n.s." 
-#> 53 "-16.49 (±19.47) n.s." "4.67 (±3.79) *"    
-#> 59 "-1.07 (±16.02) n.s."  "-1.67 (±7.37) n.s."
-#> 64 "-35.47 (±9.23) *"     "15.67 (±4.93) *"   
-#> 72 "22.62 (±22.43) n.s."  "-7.67 (±8.14) *"   
+#>    LCWT[2]               NDC[2]              
+#> 26 "-4.39 (±41.49) n.s." "-3.67 (±6.35) n.s."
+#> 29 "-5.4 (±12.87) n.s."  "-9.33 (±1.53) *"   
+#> 47 "17.02 (±19.12) n.s." "1.33 (±5.13) n.s." 
+#> 53 "-18.62 (±1.85) *"    "-1 (±4.36) n.s."   
+#> 59 "3.5 (±22.18) n.s."   "-3.33 (±5.51) n.s."
+#> 64 "-31.01 (±1.06) *"    "11 (±4) *"         
+#> 72 "21.74 (±23.32) *"    "-9.67 (±5.51) *"   
 #> 
 #> $acrGenes
-#>        LCWT[2]               NDC[2]               
-#> Sum    "-32.5 (±92.95) n.s." "8.71 (±12.85) n.s." 
-#> Mean   "-4.64 (±13.28) n.s." "1.24 (±1.84) n.s."  
-#> Median "-6.02 (±22.55) n.s." "3 (±7.44) n.s."     
-#> Mode   "9.48 (±24.77) n.s."  "-0.71 (±11.88) n.s."
-#> CV     "0.17 (±2.29) n.s."   "-5.59 (±10.35) n.s."
+#>        LCWT[2]               NDC[2]              
+#> Sum    "1.43 (±104.38) n.s." "-17 (±16.6) n.s."  
+#> Mean   "0.2 (±14.91) n.s."   "-2.43 (±2.37) n.s."
+#> Median "-7.41 (±17.52) n.s." "-1.57 (±6.48) n.s."
+#> Mode   "16.14 (±30.96) n.s." "-2.86 (±9.55) n.s."
+#> CV     "0 (±1.8) n.s."       "1.02 (±5.42) n.s." 
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.690  0.663
-#> 29   0.648  0.658
-#> 47   0.690  0.663
-#> 53   0.662  0.658
-#> 59   0.662  0.658
-#> 64   0.662  0.663
-#> 72   0.662  1.000
+#> 26   0.682  1.000
+#> 29   0.682  0.661
+#> 47   0.682  0.661
+#> 53   0.682  0.684
+#> 59   0.682  0.655
+#> 64   0.657  0.684
+#> 72   0.661  1.000
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum       0.69  0.342
-#> Mean      0.69  0.342
-#> Median    0.00  0.000
-#> Mode      0.00  0.000
-#> CV        0.69  1.000
+#> Sum      0.682  0.655
+#> Mean     0.682  0.655
+#> Median   0.000  0.316
+#> Mode     0.000  0.000
+#> CV       0.682  0.655
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
 ```
+
+## References
+
+Beast2
+
+StarBeast2
+
+Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D.,
+Hird, S.M. and Carstens, B.C. (2014) Poor fit to the multi-species
+coalescent model is widely detectable in empirical data. Systematic
+Biology, 63, 322–333.
+
+Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016)
+Posterior predictive checks of coalescent nodels: P2C2M, an R package.
+Molecular Ecology Resources}, 6, 193–205. doi: 10.1111/1755-0998.12435
+
+## Citation
+
+Villamil, J. et al. in review.
