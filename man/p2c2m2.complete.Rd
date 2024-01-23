@@ -10,9 +10,9 @@
 \usage{
 p2c2m2.complete(path = "/home/user/Desktop/", xml.file = "beast.xml", 
     descr.stats = "LCWT,NDC", beast.vers = "2.7", 
-    single.allele = c("O"), num.reps = 1, use.sorted = FALSE, 
-    use.mpi = FALSE, save.metadata = FALSE, verbose = FALSE, 
-    dbg = FALSE)
+    single.allele = c("O"), num.reps = 1, error.rate = FALSE, 
+    error.reps = 1000, use.sorted = FALSE, use.mpi = FALSE, 
+    save.metadata = FALSE, verbose = FALSE, dbg = FALSE)
 }
 
 \arguments{
@@ -33,11 +33,10 @@ p2c2m2.complete(path = "/home/user/Desktop/", xml.file = "beast.xml",
     \code{"GSI"} (Cummings et al. 2008), \code{"NDC"} (Maddison 1997). 
     The default is \code{"LCWT,NDC"}.}
 
-  \item{beast.vers}{the version of *BEAST (Heled and Drummond 2010) 
+  \item{beast.vers}{the version of starBEAST2 (...) 
     used to perform the species tree inference, specified as a 
     double-quoted string. Data parsers are located in the subdirectory 
-    exec/. Currently, the following parsers are available: \code{"1.7"} 
-    and \code{"1.8"}. The default is \code{"1.8"}.}
+    exec/. Currently, the following parser is available: \code{"2.7"}.}
 
   \item{single.allele}{the name of a species that is represented by 
     only a single allele, specified as a variable of mode vector. This 
@@ -46,7 +45,15 @@ p2c2m2.complete(path = "/home/user/Desktop/", xml.file = "beast.xml",
     statistic 'GSI'. The default is \code{c("O")}.}
 
   \item{num.reps}{the number of simulation replicates to be conducted, 
-    specified as an integer. The default is \code{1} (i.e., no replication).}
+    specified as an integer. The default is \code{1} (i.e., no
+    replication).}
+
+  \item{error.rate}{a logical specifying if error rates are estimated
+    by sampling from the posterior predictive distributions. The default     is \code{FALSE}.}
+  
+  \item{error.reps}{the number of pseudo-observed datasets or "pods" to
+    be sampled from the posterior predictive distributions, specified as 
+    an integer. The default is \code{1000}.}
 
   \item{use.sorted}{a logical specifying if the summary statistics 
     generated from the posterior and from the posterior predictive 
@@ -84,15 +91,16 @@ p2c2m2.complete(path = "/home/user/Desktop/", xml.file = "beast.xml",
 }
 
 \author{
-  Michael Gruenstaeudl, Noah Reid
+  Arley Camargo, Joaquin Villamil
 
-  Maintainer: Michael Gruenstaeudl \email{gruenstaeudl.1@osu.edu}
+  Maintainer: Arley Camargo \email{arley.camargo@gmail.com}
 }
 
 \references{
   Cummings, M.P., Neel, M.C. and Shaw, K.L. (2008) A genealogical approach to quantifying lineage divergence. \emph{Evolution}, \bold{62}, 2411--2422.
   
-  Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C., submitted. Posterior Predictive Checks of Coalescent Models: P2C2M, an R package.
+  Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C., 2016. Posterior Predictive Checks of Coalescent Models: P2C2M, an R package. \emph{Molecular Ecology Resources}, \bold{6},193--205. 
+doi: 10.1111/1755-0998.12435
   
   Heled, J. and Drummond, A.J. (2010) Bayesian inference of species trees from multilocus data. \emph{Molecular Biology And Evolution}, \bold{27}, 570--580.
   
@@ -113,6 +121,7 @@ inFile <- "thomomys.xml"
 
 # Posterior predictive simulations with a setting of 2 simulation 
 # replicates are preformed
-thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, save.metadata=TRUE)
+thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, 
+  error.rate = TRUE, save.metadata=TRUE)
 }
 
