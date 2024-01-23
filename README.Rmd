@@ -67,7 +67,7 @@ StarBeast2
 
 Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D., Hird, S.M. and Carstens, B.C. (2014) Poor fit to the multi-species coalescent model is widely detectable in empirical data. Systematic Biology, 63, 322--333.
 
-Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016) Posterior predictive checks of coalescent nodels: P2C2M, an R package. Molecular Ecology Resources}, 6, 193--205. doi: 10.1111/1755-0998.12435
+Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016) Posterior predictive checks of coalescent nodels: P2C2M, an R package. Molecular Ecology Resources, 6, 193--205. doi: 10.1111/1755-0998.12435
 
 ## Citation
 

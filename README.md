@@ -72,40 +72,40 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2,
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]               NDC[2]              
-#> 26 "-4.39 (±41.49) n.s." "-3.67 (±6.35) n.s."
-#> 29 "-5.4 (±12.87) n.s."  "-9.33 (±1.53) *"   
-#> 47 "17.02 (±19.12) n.s." "1.33 (±5.13) n.s." 
-#> 53 "-18.62 (±1.85) *"    "-1 (±4.36) n.s."   
-#> 59 "3.5 (±22.18) n.s."   "-3.33 (±5.51) n.s."
-#> 64 "-31.01 (±1.06) *"    "11 (±4) *"         
-#> 72 "21.74 (±23.32) *"    "-9.67 (±5.51) *"   
+#>    LCWT[2]                NDC[2]               
+#> 26 "-15.49 (±38.26) n.s." "-1.67 (±5.03) n.s." 
+#> 29 "1.01 (±25.73) n.s."   "-4.67 (±6.03) n.s." 
+#> 47 "10.56 (±12.3) n.s."   "-2.33 (±11.68) n.s."
+#> 53 "-22.54 (±11.73) *"    "5.33 (±5.03) *"     
+#> 59 "-1.02 (±20.52) n.s."  "-5 (±7) *"          
+#> 64 "-30.84 (±25.37) *"    "14.33 (±10.21) *"   
+#> 72 "20.21 (±43.1) n.s."   "-7 (±8.66) *"       
 #> 
 #> $acrGenes
-#>        LCWT[2]               NDC[2]              
-#> Sum    "1.43 (±104.38) n.s." "-17 (±16.6) n.s."  
-#> Mean   "0.2 (±14.91) n.s."   "-2.43 (±2.37) n.s."
-#> Median "-7.41 (±17.52) n.s." "-1.57 (±6.48) n.s."
-#> Mode   "16.14 (±30.96) n.s." "-2.86 (±9.55) n.s."
-#> CV     "0 (±1.8) n.s."       "1.02 (±5.42) n.s." 
+#>        LCWT[2]                 NDC[2]                
+#> Sum    "-19.05 (±109.39) n.s." "-1.43 (±5.83) n.s."  
+#> Mean   "-2.72 (±15.63) n.s."   "-0.2 (±0.83) n.s."   
+#> Median "-13.49 (±18.73) n.s."  "1 (±5.07) n.s."      
+#> Mode   "13.63 (±38.91) n.s."   "1.57 (±13.94) n.s."  
+#> CV     "0.57 (±2.14) n.s."     "-12.56 (±14.83) n.s."
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.682  1.000
-#> 29   0.682  0.661
-#> 47   0.682  0.661
-#> 53   0.682  0.684
-#> 59   0.682  0.655
-#> 64   0.657  0.684
-#> 72   0.661  1.000
+#> 26   0.687  1.000
+#> 29   0.687  0.666
+#> 47   0.645  0.666
+#> 53   0.645  0.666
+#> 59   0.687  1.000
+#> 64   0.645  0.666
+#> 72   0.687  0.670
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.682  0.655
-#> Mean     0.682  0.655
-#> Median   0.000  0.316
-#> Mode     0.000  0.000
-#> CV       0.682  0.655
+#> Sum      0.645  0.666
+#> Mean     0.645  0.666
+#> Median   0.332  0.000
+#> Mode     0.687  0.000
+#> CV       0.645  0.666
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
@@ -124,7 +124,7 @@ Biology, 63, 322–333.
 
 Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016)
 Posterior predictive checks of coalescent nodels: P2C2M, an R package.
-Molecular Ecology Resources}, 6, 193–205. doi: 10.1111/1755-0998.12435
+Molecular Ecology Resources, 6, 193–205. doi: 10.1111/1755-0998.12435
 
 ## Citation
 
