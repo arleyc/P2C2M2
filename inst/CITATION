@@ -1,0 +1,8 @@
+citHeader("To cite P2C2M in a publication, please use:")
+
+citEntry(entry="Article",
+    title = "Posterior Predictive Checks of Coalescent Models: P2C2M, an R package",
+    author = personList(as.person("M. Gruenstaeudl"),as.person("N.M. Reid"), as.person("G.R. Wheeler"), as.person("B.C. Carstens")),
+    year = "submitted",
+    journal = "Molecular Ecology Resources",
+    textVersion = "Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C., submitted. Posterior Predictive Checks of Coalescent Models: P2C2M, an R package.")

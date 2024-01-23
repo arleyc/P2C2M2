@@ -1,0 +1,20 @@
+#exportPattern("^[[:alpha:]]+")
+
+export(p2c2m2.complete)
+
+#export(p2c2m.init)
+#export(p2c2m.readstarb)
+#export(p2c2m.analyze)
+#export(p2c2M.statcalc)
+
+# Exporting hidden ape-functions is a critical step; do not delete the following lines
+export(.compressTipLabel)
+export(.uncompressTipLabel)
+export(.PlotPhyloEnv)
+
+# Importing ape is critical; do not delete the following lines
+import(ape)
+import(ggplot2)
+importFrom("grDevices", "boxplot.stats")
+importFrom("stats", "median", "quantile", "sd")
+importFrom("utils", "read.table", "tail")
