@@ -10,9 +10,9 @@ P2C2M2 provides functions to read default output from BEAST2 (….) and
 starBEAST2 (….) and conduct posterior predictive checks of coalescent
 models (Reid et al. 2014) based on the functions originally provided in
 the P2C2M package (Gruenstaeudl et al. 2016) to parse tree and xml files
-from BEAST and \*BEAST. It also implements estimation of type-I (false
--positive) error rates using pseudo-observed datasets (“pods”) sampled
-from the posterior predictive distribution.
+from BEAST and \*BEAST. It also implements estimation of type-I
+(false-positive) error rates using pseudo-observed datasets (“pods”)
+sampled from the posterior predictive distribution.
 
 ## Installation
 
@@ -26,10 +26,14 @@ devtools::install_github("arleyc/P2C2M2")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Basic example showing how to run the full pipeline with a single
+function using the provided dataset to test the multispecies coalescent
+model and to estimate false positive error rates per locus and across
+loci:
 
 ``` r
 library(P2C2M2)
+
 # The absolute path to the input directory is set
 inPath <- system.file("extdata", "thomomys/", package="P2C2M2")
 
@@ -39,8 +43,7 @@ inFile <- "thomomys.xml"
 
 # Posterior predictive simulations with a setting of 2 simulation 
 # replicates are preformed
-suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, 
-  error.rate = TRUE))
+suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.rate = TRUE))
 #> 
 #> bindings, loci, and alignments read
 #> 
@@ -72,40 +75,40 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2,
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]                NDC[2]               
-#> 26 "-15.49 (±38.26) n.s." "-1.67 (±5.03) n.s." 
-#> 29 "1.01 (±25.73) n.s."   "-4.67 (±6.03) n.s." 
-#> 47 "10.56 (±12.3) n.s."   "-2.33 (±11.68) n.s."
-#> 53 "-22.54 (±11.73) *"    "5.33 (±5.03) *"     
-#> 59 "-1.02 (±20.52) n.s."  "-5 (±7) *"          
-#> 64 "-30.84 (±25.37) *"    "14.33 (±10.21) *"   
-#> 72 "20.21 (±43.1) n.s."   "-7 (±8.66) *"       
+#>    LCWT[2]               NDC[2]             
+#> 26 "-10.3 (±40.74) n.s." "-4.33 (±4.93) *"  
+#> 29 "-8.52 (±12.46) n.s." "-5 (±4.58) *"     
+#> 47 "12.55 (±26.77) n.s." "2.33 (±2.89) n.s."
+#> 53 "-21.94 (±10.46) *"   "1.67 (±4.73) n.s."
+#> 59 "7.58 (±18.93) n.s."  "-4 (±7) n.s."     
+#> 64 "-20.76 (±8.18) *"    "8.33 (±1.15) *"   
+#> 72 "32.55 (±41.21) n.s." "-10.67 (±8.96) *" 
 #> 
 #> $acrGenes
-#>        LCWT[2]                 NDC[2]                
-#> Sum    "-19.05 (±109.39) n.s." "-1.43 (±5.83) n.s."  
-#> Mean   "-2.72 (±15.63) n.s."   "-0.2 (±0.83) n.s."   
-#> Median "-13.49 (±18.73) n.s."  "1 (±5.07) n.s."      
-#> Mode   "13.63 (±38.91) n.s."   "1.57 (±13.94) n.s."  
-#> CV     "0.57 (±2.14) n.s."     "-12.56 (±14.83) n.s."
+#>        LCWT[2]               NDC[2]                
+#> Sum    "9.88 (±107.14) n.s." "-15.57 (±22.65) n.s."
+#> Mean   "1.41 (±15.31) n.s."  "-2.22 (±3.24) n.s."  
+#> Median "-5.11 (±17.86) n.s." "-0.43 (±5.29) n.s."  
+#> Mode   "17.46 (±39.42) n.s." "-5.57 (±10.34) n.s." 
+#> CV     "0.04 (±2.09) n.s."   "-1.45 (±4.31) n.s."  
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.687  1.000
-#> 29   0.687  0.666
-#> 47   0.645  0.666
-#> 53   0.645  0.666
-#> 59   0.687  1.000
-#> 64   0.645  0.666
-#> 72   0.687  0.670
+#> 26   0.663  0.657
+#> 29   0.667  0.657
+#> 47   0.670  0.650
+#> 53   0.667  0.693
+#> 59   0.663  0.693
+#> 64   0.667  0.657
+#> 72   0.667  0.650
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.645  0.666
-#> Mean     0.645  0.666
-#> Median   0.332  0.000
-#> Mode     0.687  0.000
-#> CV       0.645  0.666
+#> Sum      0.663  0.343
+#> Mean     0.663  0.343
+#> Median   0.000  0.000
+#> Mode     0.000  0.000
+#> CV       0.663  1.000
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."

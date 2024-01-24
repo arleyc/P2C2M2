@@ -19,13 +19,8 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 P2C2M2 provides functions to read default output from BEAST2 
-  (....) and starBEAST2 (....)
-  and conduct posterior predictive checks of coalescent models (Reid
-  et al. 2014) based on the functions originally provided in the P2C2M
-  package (Gruenstaeudl et al. 2016) to parse tree and xml files from
-  BEAST and *BEAST. It also implements estimation of type-I (false
-  -positive) error rates using pseudo-observed datasets ("pods")
-  sampled from the posterior predictive distribution.
+  (....) and starBEAST2 (....) and conduct posterior predictive       checks of coalescent models (Reid et al. 2014) based on the         functions originally provided in the P2C2M package (Gruenstaeudl    et al. 2016) to parse tree and xml files from BEAST and *BEAST.
+  It also implements estimation of type-I (false-positive) error      rates using pseudo-observed datasets ("pods") sampled from the      posterior predictive distribution.
 
 ## Installation
 
@@ -38,10 +33,11 @@ devtools::install_github("arleyc/P2C2M2")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Basic example showing how to run the full pipeline with a single function using the provided dataset to test the multispecies coalescent model and to estimate false positive error rates per locus and across loci:
 
 ```{r example}
 library(P2C2M2)
+
 # The absolute path to the input directory is set
 inPath <- system.file("extdata", "thomomys/", package="P2C2M2")
 
@@ -51,8 +47,7 @@ inFile <- "thomomys.xml"
 
 # Posterior predictive simulations with a setting of 2 simulation 
 # replicates are preformed
-suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, 
-  error.rate = TRUE))
+suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.rate = TRUE))
 
 thomomys$results$alpha0.01
 
