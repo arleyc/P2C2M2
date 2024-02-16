@@ -31,6 +31,23 @@ You can install the development version of P2C2M2 from [GitHub](https://github.c
 devtools::install_github("arleyc/P2C2M2")
 ```
 
+## Input files
+
+In order to generate the tree files annotated with the required demographic
+and branch rate estimates, the XML file has to be modified by hand to include
+the following code before running BEAST 2:
+
+#For strict clocks:
+
+Insert the following: <em>substitutions="true" branchratemodel="\@StrictClock.c:Locus_Name"</em> after <em>id="TreeWithMetaDataLogger.t:Locus_Name"</em> 
+and before <em>spec="beast.base.evolution.TreeWithMetaDataLogger"</em>
+
+#For UCLN or RLC clocks:
+
+Insert the following: <em>substitutions="true"</em>
+after <em>id="TreeWithMetaDataLogger.t:Locus_Name"</em> 
+and before <em>spec="beast.base.evolution.TreeWithMetaDataLogger"</em>
+
 ## Example
 
 Basic example showing how to run the full pipeline with a single function using the provided dataset to test the multispecies coalescent model and to estimate false positive error rates per locus and across loci:

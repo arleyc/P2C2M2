@@ -24,6 +24,25 @@ You can install the development version of P2C2M2 from
 devtools::install_github("arleyc/P2C2M2")
 ```
 
+## Input files
+
+In order to generate the tree files annotated with the required
+demographic and branch rate estimates, the XML file has to be modified
+by hand to include the following code before running BEAST 2:
+
+\#For strict clocks:
+
+Insert the following: <em>substitutions=“true”
+branchratemodel=“@StrictClock.c:Locus_Name”</em> after
+<em>id=“TreeWithMetaDataLogger.t:Locus_Name”</em> and before
+<em>spec=“beast.base.evolution.TreeWithMetaDataLogger”</em>
+
+\#For UCLN or RLC clocks:
+
+Insert the following: <em>substitutions=“true”</em> after
+<em>id=“TreeWithMetaDataLogger.t:Locus_Name”</em> and before
+<em>spec=“beast.base.evolution.TreeWithMetaDataLogger”</em>
+
 ## Example
 
 Basic example showing how to run the full pipeline with a single
@@ -75,40 +94,40 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.r
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]               NDC[2]             
-#> 26 "-10.3 (±40.74) n.s." "-4.33 (±4.93) *"  
-#> 29 "-8.52 (±12.46) n.s." "-5 (±4.58) *"     
-#> 47 "12.55 (±26.77) n.s." "2.33 (±2.89) n.s."
-#> 53 "-21.94 (±10.46) *"   "1.67 (±4.73) n.s."
-#> 59 "7.58 (±18.93) n.s."  "-4 (±7) n.s."     
-#> 64 "-20.76 (±8.18) *"    "8.33 (±1.15) *"   
-#> 72 "32.55 (±41.21) n.s." "-10.67 (±8.96) *" 
+#>    LCWT[2]                NDC[2]              
+#> 26 "-1.7 (±39.03) n.s."   "-1.33 (±9.07) n.s."
+#> 29 "-8.47 (±11.28) n.s."  "-3.67 (±3.21) *"   
+#> 47 "9.26 (±8.84) n.s."    "2 (±6) n.s."       
+#> 53 "-21.28 (±19.16) n.s." "5.33 (±2.31) *"    
+#> 59 "2.35 (±35.31) n.s."   "-3 (±5.29) n.s."   
+#> 64 "-19.49 (±8.96) *"     "9.67 (±9.45) n.s." 
+#> 72 "29.94 (±39.3) n.s."   "-12.33 (±6.03) *"  
 #> 
 #> $acrGenes
-#>        LCWT[2]               NDC[2]                
-#> Sum    "9.88 (±107.14) n.s." "-15.57 (±22.65) n.s."
-#> Mean   "1.41 (±15.31) n.s."  "-2.22 (±3.24) n.s."  
-#> Median "-5.11 (±17.86) n.s." "-0.43 (±5.29) n.s."  
-#> Mode   "17.46 (±39.42) n.s." "-5.57 (±10.34) n.s." 
-#> CV     "0.04 (±2.09) n.s."   "-1.45 (±4.31) n.s."  
+#>        LCWT[2]                NDC[2]               
+#> Sum    "12.77 (±124.38) n.s." "-5 (±9.78) n.s."    
+#> Mean   "1.82 (±17.77) n.s."   "-0.71 (±1.4) n.s."  
+#> Median "-4.54 (±20.37) n.s."  "0 (±8) n.s."        
+#> Mode   "20.82 (±30.37) n.s."  "-2.14 (±12.24) n.s."
+#> CV     "-0.29 (±1.66) n.s."   "-8.54 (±16.94) n.s."
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.663  0.657
-#> 29   0.667  0.657
-#> 47   0.670  0.650
-#> 53   0.667  0.693
-#> 59   0.663  0.693
-#> 64   0.667  0.657
-#> 72   0.667  0.650
+#> 26   0.666  1.000
+#> 29   0.672  0.647
+#> 47   0.672  0.647
+#> 53   0.662  1.000
+#> 59   0.672  0.673
+#> 64   0.666  0.673
+#> 72   0.672  0.673
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.663  0.343
-#> Mean     0.663  0.343
+#> Sum      0.662  0.647
+#> Mean     0.662  0.647
 #> Median   0.000  0.000
 #> Mode     0.000  0.000
-#> CV       0.663  1.000
+#> CV       0.662  0.647
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
