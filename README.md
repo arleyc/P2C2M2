@@ -6,13 +6,14 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-P2C2M2 provides functions to read default output from BEAST2 (….) and
-starBEAST2 (….) and conduct posterior predictive checks of coalescent
-models (Reid et al. 2014) based on the functions originally provided in
-the P2C2M package (Gruenstaeudl et al. 2016) to parse tree and xml files
-from BEAST and \*BEAST. It also implements estimation of type-I
-(false-positive) error rates using pseudo-observed datasets (“pods”)
-sampled from the posterior predictive distribution.
+P2C2M2 provides functions to read default output from BEAST 2 (Bouckaert
+et al. 2019) and StarBEAST2 (Ogilvie et al. 2017) and conduct posterior
+predictive checks of coalescent models (Reid et al. 2014) based on the
+functions originally provided in the P2C2M package (Gruenstaeudl et
+al. 2016) to parse tree and xml files from BEAST and \*BEAST. It also
+implements estimation of type-I (false-positive) error rates using
+pseudo-observed datasets (“pods”) sampled from the posterior predictive
+distribution.
 
 ## Installation
 
@@ -26,20 +27,20 @@ devtools::install_github("arleyc/P2C2M2")
 
 ## Input files
 
-In order to generate the tree files annotated with the required
-demographic and branch rate estimates, the XML file has to be modified
-by hand to include the following code before running BEAST 2:
+In order to generate the tree files annotated with the required branch
+rate estimates, the XML file has to be modified by hand to include the
+following code before running BEAST 2:
 
 \#For strict clocks:
 
-Insert the following: <em>substitutions=“true”
-branchratemodel=“@StrictClock.c:Locus_Name”</em> after
+Insert the following:<br> <em>substitutions=“true”
+branchratemodel=“@StrictClock.c:Locus_Name”</em><br> after
 <em>id=“TreeWithMetaDataLogger.t:Locus_Name”</em> and before
 <em>spec=“beast.base.evolution.TreeWithMetaDataLogger”</em>
 
 \#For UCLN or RLC clocks:
 
-Insert the following: <em>substitutions=“true”</em> after
+Insert the following:<br> <em>substitutions=“true”</em><br> after
 <em>id=“TreeWithMetaDataLogger.t:Locus_Name”</em> and before
 <em>spec=“beast.base.evolution.TreeWithMetaDataLogger”</em>
 
@@ -94,40 +95,40 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.r
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]                NDC[2]              
-#> 26 "-1.7 (±39.03) n.s."   "-1.33 (±9.07) n.s."
-#> 29 "-8.47 (±11.28) n.s."  "-3.67 (±3.21) *"   
-#> 47 "9.26 (±8.84) n.s."    "2 (±6) n.s."       
-#> 53 "-21.28 (±19.16) n.s." "5.33 (±2.31) *"    
-#> 59 "2.35 (±35.31) n.s."   "-3 (±5.29) n.s."   
-#> 64 "-19.49 (±8.96) *"     "9.67 (±9.45) n.s." 
-#> 72 "29.94 (±39.3) n.s."   "-12.33 (±6.03) *"  
+#>    LCWT[2]                NDC[2]               
+#> 26 "-16.8 (±37.28) n.s."  "-6.33 (±11.15) n.s."
+#> 29 "-11.94 (±16.13) n.s." "-0.67 (±4.51) n.s." 
+#> 47 "18.92 (±16.41) *"     "2 (±7) n.s."        
+#> 53 "-17.05 (±8.08) *"     "2 (±1.73) *"        
+#> 59 "-0.72 (±33.96) n.s."  "-5.67 (±5.03) *"    
+#> 64 "-33.34 (±4.29) *"     "13.33 (±4.16) *"    
+#> 72 "20.16 (±20.77) n.s."  "-8.67 (±3.06) *"    
 #> 
 #> $acrGenes
 #>        LCWT[2]                NDC[2]               
-#> Sum    "12.77 (±124.38) n.s." "-5 (±9.78) n.s."    
-#> Mean   "1.82 (±17.77) n.s."   "-0.71 (±1.4) n.s."  
-#> Median "-4.54 (±20.37) n.s."  "0 (±8) n.s."        
-#> Mode   "20.82 (±30.37) n.s."  "-2.14 (±12.24) n.s."
-#> CV     "-0.29 (±1.66) n.s."   "-8.54 (±16.94) n.s."
+#> Sum    "-29.62 (±69.31) n.s." "-6.14 (±13.15) n.s."
+#> Mean   "-4.23 (±9.9) n.s."    "-0.88 (±1.88) n.s." 
+#> Median "-2.17 (±25.62) n.s."  "-0.14 (±6.36) n.s." 
+#> Mode   "5.33 (±27.19) n.s."   "-2.71 (±12.94) n.s."
+#> CV     "0.47 (±4.52) n.s."    "-4.74 (±7.31) n.s." 
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.666  1.000
-#> 29   0.672  0.647
-#> 47   0.672  0.647
-#> 53   0.662  1.000
-#> 59   0.672  0.673
-#> 64   0.666  0.673
-#> 72   0.672  0.673
+#> 26   0.649  0.657
+#> 29   0.669  0.643
+#> 47   0.649  0.643
+#> 53   0.649  1.000
+#> 59   0.649  0.700
+#> 64   0.669  1.000
+#> 72   0.669  1.000
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.662  0.647
-#> Mean     0.662  0.647
-#> Median   0.000  0.000
+#> Sum      0.669  0.700
+#> Mean     0.669  0.700
+#> Median   0.000  0.343
 #> Mode     0.000  0.000
-#> CV       0.662  0.647
+#> CV       0.669  0.700
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
@@ -135,19 +136,28 @@ thomomys$results$legend
 
 ## References
 
-Beast2
+Bouckaert, R., Vaughan, T.G., Barido-Sottani, J., Duchêne, S., Fourment,
+M., Gavryushkina, A., et al. (2019) BEAST 2.5: An advanced software
+platform for Bayesian evolutionary analysis. PLoS Computational Biology,
+15(4), e1006650.
 
-StarBeast2
+Ogilvie, H.A., Bouckaert, R.R., Drummond, A.J. (2017) StarBEAST2 brings
+faster species tree inference and accurate estimates of substitution
+rates. Molecular Biology and Evolution, 34(8), 2101-–2114.
+
+Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016)
+Posterior predictive checks of coalescent nodels: P2C2M, an R package.
+Molecular Ecology Resources, 6, 193–205.
 
 Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D.,
 Hird, S.M. and Carstens, B.C. (2014) Poor fit to the multi-species
 coalescent model is widely detectable in empirical data. Systematic
 Biology, 63, 322–333.
 
-Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016)
-Posterior predictive checks of coalescent nodels: P2C2M, an R package.
-Molecular Ecology Resources, 6, 193–205. doi: 10.1111/1755-0998.12435
-
 ## Citation
 
-Villamil, J. et al. in review.
+Villamil, J., Morando, M., Avila, L.J., Lanna, F.M., Fonseca, E.M.,
+Sites, Jr., J.W., Camargo, A. Revisiting the problem of Multispecies
+Coalescent Model fit with an example from the first complete molecular
+phylogeny of the <em>Liolaemus wiegmannii</em> species group (Squamata:
+Liolaemidae), in review.
