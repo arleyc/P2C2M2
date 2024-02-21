@@ -80,4 +80,4 @@ Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D., Hird, S.M. 
 
 ## Citation
 
-Villamil, J., Morando, M., Avila, L.J., Lanna, F.M., Fonseca, E.M., Sites, Jr., J.W., Camargo, A. Revisiting the problem of Multispecies Coalescent Model fit with an example from the first complete molecular phylogeny of the <em>Liolaemus wiegmannii</em> species group (Squamata: Liolaemidae), in review.
+Villamil, J., Morando, M., Avila, L.J., Lanna, F.M., Fonseca, E.M., Sites, Jr., J.W., Camargo, A. Revisiting the problem of Multispecies Coalescent Model fit with an example from a complete molecular phylogeny of the <em>Liolaemus wiegmannii</em> species group (Squamata: Liolaemidae), in review.
