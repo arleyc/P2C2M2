@@ -95,40 +95,40 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.r
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]                NDC[2]              
-#> 26 "-10.28 (±30.29) n.s." "-3 (±4) n.s."      
-#> 29 "-18.42 (±26.73) n.s." "-0.67 (±6.43) n.s."
-#> 47 "5.4 (±15.37) n.s."    "-2 (±9.54) n.s."   
-#> 53 "-14.65 (±31.59) n.s." "-0.33 (±5.69) n.s."
-#> 59 "1.78 (±5.92) n.s."    "-3.67 (±3.21) *"   
-#> 64 "-38.8 (±17.21) *"     "12.33 (±6.66) *"   
-#> 72 "32.71 (±40.62) *"     "-9 (±8.72) *"      
+#>    LCWT[2]                NDC[2]               
+#> 26 "-14.27 (±37.45) n.s." "-2 (±7.21) n.s."    
+#> 29 "-20.41 (±38.11) n.s." "-2.33 (±10.41) n.s."
+#> 47 "9.85 (±2.45) *"       "2.33 (±4.16) n.s."  
+#> 53 "-20.49 (±2.29) *"     "5.33 (±2.08) *"     
+#> 59 "-3.14 (±7.53) n.s."   "-2.33 (±3.06) n.s." 
+#> 64 "-22.06 (±7.76) *"     "10 (±6) *"          
+#> 72 "10.64 (±28.26) n.s."  "-8.67 (±7.23) *"    
 #> 
 #> $acrGenes
-#>        LCWT[2]                NDC[2]              
-#> Sum    "-33.54 (±56.34) n.s." "-6 (±1.91) *"      
-#> Mean   "-4.79 (±8.05) n.s."   "-0.86 (±0.27) *"   
-#> Median "-8.41 (±19.15) n.s."  "-1.57 (±5.47) n.s."
-#> Mode   "2.67 (±46.18) n.s."   "-0.57 (±13) n.s."  
-#> CV     "6.14 (±10.43) n.s."   "-12.69 (±9.41) *"  
+#>        LCWT[2]                NDC[2]               
+#> Sum    "-43.29 (±93.14) n.s." "-0.57 (±20.15) n.s."
+#> Mean   "-6.18 (±13.31) n.s."  "-0.08 (±2.88) n.s." 
+#> Median "-14.21 (±18.06) n.s." "0.86 (±5.52) n.s."  
+#> Mode   "8.04 (±26.61) n.s."   "-2.57 (±11.84) n.s."
+#> CV     "0.8 (±2.36) n.s."     "-5.77 (±6.53) n.s." 
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.661  1.000
-#> 29   0.653  0.701
-#> 47   0.653  0.651
-#> 53   0.686  0.648
-#> 59   0.686  0.648
-#> 64   0.686  0.651
-#> 72   0.661  1.000
+#> 26   0.657  0.678
+#> 29   0.689  0.678
+#> 47   0.689  0.665
+#> 53   0.689  0.657
+#> 59   0.654  0.678
+#> 64   0.654  0.665
+#> 72   0.689  0.678
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.653  0.648
-#> Mean     0.653  0.648
+#> Sum      0.657  0.665
+#> Mean     0.657  0.665
 #> Median   0.000  0.000
 #> Mode     0.000  0.000
-#> CV       0.653  0.648
+#> CV       0.657  0.665
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
@@ -137,20 +137,23 @@ thomomys$results$legend
 ## References
 
 Bouckaert, R., Vaughan, T.G., Barido-Sottani, J., Duchêne, S., Fourment,
-M., Gavryushkina, A., et al. (2019) BEAST 2.5: An advanced software
-platform for Bayesian evolutionary analysis. PLoS Computational Biology,
-15(4), e1006650.
+M., Gavryushkina, A., Heled, J., Jones, G., Kühnert, D., De Maio, N.,
+Matschiner, M., Mendes, F.K., Müller, N.F., Ogilvie, H.A., du Plessis,
+L., Popinga, A., Rambaut, A., Rasmussen, D., Siveroni, I., Suchard,
+M.A., Wu, C.H., Xie, D., Zhang, C., Stadler, T., Drummond, A.J. (2019)
+BEAST 2.5: An advanced software platform for Bayesian evolutionary
+analysis. PLoS Computational Biology, 15(4), e1006650.
+
+Gruenstaeudl, M., Reid, N.M., Wheeler, G.R., Carstens, B.C. (2016)
+Posterior predictive checks of coalescent models: P2C2M, an R package.
+Molecular Ecology Resources, 6, 193–205.
 
 Ogilvie, H.A., Bouckaert, R.R., Drummond, A.J. (2017) StarBEAST2 brings
 faster species tree inference and accurate estimates of substitution
 rates. Molecular Biology and Evolution, 34(8), 2101-–2114.
 
-Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016)
-Posterior predictive checks of coalescent nodels: P2C2M, an R package.
-Molecular Ecology Resources, 6, 193–205.
-
 Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D.,
-Hird, S.M. and Carstens, B.C. (2014) Poor fit to the multi-species
+Hird, S.M., Carstens, B.C. (2014) Poor fit to the multi-species
 coalescent model is widely detectable in empirical data. Systematic
 Biology, 63, 322–333.
 

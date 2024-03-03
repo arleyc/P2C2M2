@@ -70,13 +70,13 @@ thomomys$results$legend
 
 ## References
 
-Bouckaert, R., Vaughan, T.G., Barido-Sottani, J., Duchêne, S., Fourment, M., Gavryushkina, A., et al. (2019) BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 15(4), e1006650.
+Bouckaert, R., Vaughan, T.G., Barido-Sottani, J., Duchêne, S., Fourment, M., Gavryushkina, A., Heled, J., Jones, G., Kühnert, D., De Maio, N., Matschiner, M., Mendes, F.K., Müller, N.F., Ogilvie, H.A., du Plessis, L., Popinga, A., Rambaut, A., Rasmussen, D., Siveroni, I., Suchard, M.A., Wu, C.H., Xie, D., Zhang, C., Stadler, T., Drummond, A.J. (2019) BEAST 2.5: An advanced software platform for Bayesian evolutionary analysis. PLoS Computational Biology, 15(4), e1006650.
+
+Gruenstaeudl, M., Reid, N.M., Wheeler, G.R., Carstens, B.C. (2016) Posterior predictive checks of coalescent models: P2C2M, an R package. Molecular Ecology Resources, 6, 193--205.
 
 Ogilvie, H.A., Bouckaert, R.R., Drummond, A.J. (2017) StarBEAST2 brings faster species tree inference and accurate estimates of substitution rates. Molecular Biology and Evolution, 34(8), 2101-–2114.
 
-Gruenstaeudl, M., Reid, N.M., Wheeler, G.R. and Carstens, B.C. (2016) Posterior predictive checks of coalescent nodels: P2C2M, an R package. Molecular Ecology Resources, 6, 193--205.
-
-Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D., Hird, S.M. and Carstens, B.C. (2014) Poor fit to the multi-species coalescent model is widely detectable in empirical data. Systematic Biology, 63, 322--333.
+Reid, N.M., Brown, J.M., Satler, J.D., Pelletier, T.A., McVay, J.D., Hird, S.M., Carstens, B.C. (2014) Poor fit to the multi-species coalescent model is widely detectable in empirical data. Systematic Biology, 63, 322--333.
 
 ## Citation
 
