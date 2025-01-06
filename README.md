@@ -22,6 +22,7 @@ You can install the development version of P2C2M2 from
 
 ``` r
 # install.packages("devtools")
+devtools::install_version("rPython", version = "0.0-6", repos = "http://cran.us.r-project.org")
 devtools::install_github("arleyc/P2C2M2")
 ```
 
@@ -96,39 +97,39 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.r
 thomomys$results$alpha0.01
 #> $perGene
 #>    LCWT[2]                NDC[2]               
-#> 26 "-14.27 (±37.45) n.s." "-2 (±7.21) n.s."    
-#> 29 "-20.41 (±38.11) n.s." "-2.33 (±10.41) n.s."
-#> 47 "9.85 (±2.45) *"       "2.33 (±4.16) n.s."  
-#> 53 "-20.49 (±2.29) *"     "5.33 (±2.08) *"     
-#> 59 "-3.14 (±7.53) n.s."   "-2.33 (±3.06) n.s." 
-#> 64 "-22.06 (±7.76) *"     "10 (±6) *"          
-#> 72 "10.64 (±28.26) n.s."  "-8.67 (±7.23) *"    
+#> 26 "-7.35 (±45.01) n.s."  "-5.33 (±8.5) n.s."  
+#> 29 "-19.89 (±29.75) n.s." "-3.33 (±8.5) n.s."  
+#> 47 "18.05 (±10.75) *"     "2 (±4.36) n.s."     
+#> 53 "-12.85 (±2.72) *"     "-3.33 (±10.12) n.s."
+#> 59 "-0.29 (±19.99) n.s."  "-3.33 (±6.66) n.s." 
+#> 64 "-23.85 (±8.47) *"     "11.67 (±5.13) *"    
+#> 72 "10.35 (±21.02) n.s."  "-7.67 (±8.39) n.s." 
 #> 
 #> $acrGenes
-#>        LCWT[2]                NDC[2]               
-#> Sum    "-43.29 (±93.14) n.s." "-0.57 (±20.15) n.s."
-#> Mean   "-6.18 (±13.31) n.s."  "-0.08 (±2.88) n.s." 
-#> Median "-14.21 (±18.06) n.s." "0.86 (±5.52) n.s."  
-#> Mode   "8.04 (±26.61) n.s."   "-2.57 (±11.84) n.s."
-#> CV     "0.8 (±2.36) n.s."     "-5.77 (±6.53) n.s." 
+#>        LCWT[2]                NDC[2]                
+#> Sum    "-15.6 (±115.13) n.s." "-11.86 (±19.55) n.s."
+#> Mean   "-2.23 (±16.45) n.s."  "-1.69 (±2.79) n.s."  
+#> Median "-9.48 (±18.15) n.s."  "0.29 (±7.72) n.s."   
+#> Mode   "15.1 (±23.75) n.s."   "-3.86 (±11.84) n.s." 
+#> CV     "-0.07 (±1.55) n.s."   "-1.58 (±2.72) n.s."  
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.657  0.678
-#> 29   0.689  0.678
-#> 47   0.689  0.665
-#> 53   0.689  0.657
-#> 59   0.654  0.678
-#> 64   0.654  0.665
-#> 72   0.689  0.678
+#> 26   0.674  0.679
+#> 29   1.000  0.659
+#> 47   0.649  0.679
+#> 53   0.649  0.662
+#> 59   0.674  0.659
+#> 64   0.674  0.679
+#> 72   0.649  0.679
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.657  0.665
-#> Mean     0.657  0.665
-#> Median   0.000  0.000
-#> Mode     0.000  0.000
-#> CV       0.657  0.665
+#> Sum      0.674  0.679
+#> Mean     0.674  0.679
+#> Median   0.323  0.000
+#> Mode     0.674  0.000
+#> CV       0.674  0.679
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
