@@ -244,8 +244,8 @@ name="alignment">
 
     <map name="OneOnX" >beast.base.inference.distribution.OneOnX</map>
 
-    <run id="mcmc" spec="MCMC" chainLength="10000" storeEvery="100">
-        <state id="state" spec="State" storeEvery="5000">
+    <run id="mcmc" spec="MCMC" chainLength="100000" storeEvery="1000">
+        <state id="state" spec="State" storeEvery="1000">
             <stateNode id="Tree.t:Species" spec="starbeast2.SpeciesTree">
                 <taxonset id="taxonsuperset" spec="starbeast2.StarBeastTaxonSet">
                     <taxon id="talpoides" spec="TaxonSet">
@@ -685,7 +685,7 @@ name="alignment">
         <operator id="FrequenciesExchanger.s:72" spec="operator.kernel.BactrianDeltaExchangeOperator" delta="0.2" weight="1.5">
             <parameter idref="freqParameter.s:72"/>
         </operator>
-        <logger id="tracelog" spec="Logger" fileName="starbeast.log" logEvery="5000" model="@posterior" sort="smart">
+        <logger id="tracelog" spec="Logger" fileName="starbeast.log" logEvery="1000" model="@posterior" sort="smart">
             <log idref="posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
@@ -731,34 +731,34 @@ name="alignment">
             <log idref="freqParameter.s:64"/>
             <log idref="freqParameter.s:72"/>
         </logger>
-        <logger id="speciesTreeLogger" spec="Logger" fileName="species.trees" logEvery="100" mode="tree">
+        <logger id="speciesTreeLogger" spec="Logger" fileName="species.trees" logEvery="1000" mode="tree">
             <log id="SpeciesTreeLoggerX" spec="starbeast2.SpeciesTreeLogger" populationmodel="@lwcrPopModel.Species" speciesTree="@Tree.t:Species"/>
         </logger>
-        <logger id="screenlog" spec="Logger" logEvery="5000" model="@posterior">
+        <logger id="screenlog" spec="Logger" logEvery="1000" model="@posterior">
             <log idref="posterior"/>
             <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
         </logger>
-        <logger id="treelog.t:59" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:59" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:59" substitutions="true" branchratemodel="@StrictClock.c:59" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:59"/>
         </logger>
-        <logger id="treelog.t:72" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:72" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:72" substitutions="true" branchratemodel="@StrictClock.c:72" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:72"/>
         </logger>
-        <logger id="treelog.t:47" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:47" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:47" substitutions="true" branchratemodel="@StrictClock.c:47" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:47"/>
         </logger>
-        <logger id="treelog.t:29" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:29" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:29" substitutions="true" branchratemodel="@StrictClock.c:29" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:29"/>
         </logger>
-        <logger id="treelog.t:53" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:53" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:53" substitutions="true" branchratemodel="@StrictClock.c:53" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:53"/>
         </logger>
-        <logger id="treelog.t:64" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:64" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:64" substitutions="true" branchratemodel="@StrictClock.c:64" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:64"/>
         </logger>
-        <logger id="treelog.t:26" spec="Logger" fileName="$(tree).trees" logEvery="100" mode="tree">
+        <logger id="treelog.t:26" spec="Logger" fileName="$(tree).trees" logEvery="1000" mode="tree">
             <log id="TreeWithMetaDataLogger.t:26" substitutions="true" branchratemodel="@StrictClock.c:26" spec="beast.base.evolution.TreeWithMetaDataLogger" tree="@Tree.t:26"/>
         </logger>
         <operatorschedule id="operatorSchedule" spec="OperatorSchedule">
