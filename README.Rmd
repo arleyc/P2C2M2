@@ -50,7 +50,7 @@ after <em>id="TreeWithMetaDataLogger.t:Locus_Name"</em> and before <em>spec="bea
 
 Basic example showing how to run the full pipeline with a single function using the provided dataset to test the multispecies coalescent model and to estimate false positive error rates per locus and across loci:
 
-```{r example}
+```{r example1}
 library(P2C2M2)
 
 # The absolute path to the input directory is set
@@ -60,13 +60,23 @@ inPath <- system.file("extdata", "thomomys/", package="P2C2M2")
 # "inPath" is set
 inFile <- "thomomys.xml"
 
-# Posterior predictive simulations with a setting of 2 simulation 
+# Posterior predictive simulations with a setting of 10 simulation 
 # replicates are preformed
-suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.rate = TRUE))
+suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=10, error.rate = TRUE, save.metadata = TRUE))
 
 thomomys$results$alpha0.01
 
 thomomys$results$legend
+```
+
+Plot distributions of difference values for each locus based on the NDC statistic:
+
+```{r example2}
+graphics::par(mfrow=c(2,3), mar=c(5, 2, 5, 2) + 0.1)
+for (i in 1:6){plot(density(thomomys$metaData$NDC$dif[,i]),main=noquote(thomomys$inData$loci$dta[[i]]),xlab="",ylab="")}
+par(mfrow=c(1,1))
+mtext("Difference values",side=1,cex=1.1,line=3)
+mtext("NDC",side=3,cex=1,line=4)
 ```
 
 ## References

@@ -62,9 +62,9 @@ inPath <- system.file("extdata", "thomomys/", package="P2C2M2")
 # "inPath" is set
 inFile <- "thomomys.xml"
 
-# Posterior predictive simulations with a setting of 2 simulation 
+# Posterior predictive simulations with a setting of 10 simulation 
 # replicates are preformed
-suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.rate = TRUE))
+suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=10, error.rate = TRUE, save.metadata = TRUE))
 #> 
 #> bindings, loci, and alignments read
 #> 
@@ -86,7 +86,7 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.r
 #> 
 #> species trees done
 #> 
-#> Calculating metrics for 3 trees of the posterior distribution
+#> Calculating metrics for 91 trees of the posterior distribution
 #> 
 #> Calculating metrics for the trees of the post. predictive distribution
 #> 
@@ -96,44 +96,57 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=2, error.r
 
 thomomys$results$alpha0.01
 #> $perGene
-#>    LCWT[2]                NDC[2]               
-#> 26 "-7.35 (±45.01) n.s."  "-5.33 (±8.5) n.s."  
-#> 29 "-19.89 (±29.75) n.s." "-3.33 (±8.5) n.s."  
-#> 47 "18.05 (±10.75) *"     "2 (±4.36) n.s."     
-#> 53 "-12.85 (±2.72) *"     "-3.33 (±10.12) n.s."
-#> 59 "-0.29 (±19.99) n.s."  "-3.33 (±6.66) n.s." 
-#> 64 "-23.85 (±8.47) *"     "11.67 (±5.13) *"    
-#> 72 "10.35 (±21.02) n.s."  "-7.67 (±8.39) n.s." 
+#>    LCWT[2]              NDC[2]             
+#> 26 "-3.09 (±6.81) n.s." "6.44 (±3.62) n.s."
+#> 29 "-1.78 (±5.55) n.s." "4.74 (±3.9) n.s." 
+#> 47 "-1.36 (±6.19) n.s." "4.31 (±3.96) n.s."
+#> 53 "-3.12 (±6.95) n.s." "3.79 (±4.09) n.s."
+#> 59 "-0.6 (±7.48) n.s."  "4.84 (±4.32) n.s."
+#> 64 "-2.9 (±6.72) n.s."  "5.73 (±4.23) n.s."
+#> 72 "-0.28 (±5.29) n.s." "2.09 (±4.65) n.s."
 #> 
 #> $acrGenes
-#>        LCWT[2]                NDC[2]                
-#> Sum    "-15.6 (±115.13) n.s." "-11.86 (±19.55) n.s."
-#> Mean   "-2.23 (±16.45) n.s."  "-1.69 (±2.79) n.s."  
-#> Median "-9.48 (±18.15) n.s."  "0.29 (±7.72) n.s."   
-#> Mode   "15.1 (±23.75) n.s."   "-3.86 (±11.84) n.s." 
-#> CV     "-0.07 (±1.55) n.s."   "-1.58 (±2.72) n.s."  
+#>        LCWT[2]                NDC[2]               
+#> Sum    "-13.14 (±25.34) n.s." "31.92 (±14.65) n.s."
+#> Mean   "-1.88 (±3.62) n.s."   "4.56 (±2.09) n.s."  
+#> Median "0 (±0) n.s."          "5 (±1.2) *"         
+#> Mode   "0 (±0) 0"             "5.29 (±1.59) *"     
+#> CV     "-13.73 (±90.42) n.s." "0.08 (±6.75) n.s."  
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.674  0.679
-#> 29   1.000  0.659
-#> 47   0.649  0.679
-#> 53   0.649  0.662
-#> 59   0.674  0.659
-#> 64   0.674  0.679
-#> 72   0.649  0.679
+#> 26   0.018  0.000
+#> 29   0.027  0.034
+#> 47   0.027  0.020
+#> 53   0.029  0.024
+#> 59   0.034  0.012
+#> 64   0.021  0.041
+#> 72   0.020  0.017
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.674  0.679
-#> Mean     0.674  0.679
-#> Median   0.323  0.000
-#> Mode     0.674  0.000
-#> CV       0.674  0.679
+#> Sum      0.027  0.018
+#> Mean     0.027  0.018
+#> Median   0.702  0.256
+#> Mode     0.633  0.197
+#> CV       0.018  0.018
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
 ```
+
+Plot distributions of difference values for each locus based on the NDC
+statistic:
+
+``` r
+graphics::par(mfrow=c(2,3), mar=c(5, 2, 5, 2) + 0.1)
+for (i in 1:6){plot(density(thomomys$metaData$NDC$dif[,i]),main=noquote(thomomys$inData$loci$dta[[i]]),xlab="",ylab="")}
+par(mfrow=c(1,1))
+mtext("Difference values",side=1,cex=1.1,line=3)
+mtext("NDC",side=3,cex=1,line=4)
+```
+
+<img src="man/figures/README-example2-1.png" width="100%" />
 
 ## References
 
