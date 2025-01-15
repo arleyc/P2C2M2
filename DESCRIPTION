@@ -1,8 +1,8 @@
 Package: P2C2M2
 Type: Package
 Title: Posterior Predictive Checks of Coalescent Models
-Version: 0.01
-Date: 2020-04-01
+Version: 0.02
+Date: 2025-01-15
 Author: Arley Camargo
 Maintainer: Arley Camargo <arley.camargo@gmail.com>
 Depends: R (>= 3.0.0)

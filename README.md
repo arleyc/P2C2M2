@@ -94,42 +94,42 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=10, error.
 #> 
 #> Calculating differences btw. 1000 pods and the post. predictive distribution to estimate error rates
 
-thomomys$results$alpha0.01
+thomomys$results$alpha0.05
 #> $perGene
 #>    LCWT[2]              NDC[2]             
-#> 26 "-3.09 (±6.81) n.s." "6.44 (±3.62) n.s."
-#> 29 "-1.78 (±5.55) n.s." "4.74 (±3.9) n.s." 
-#> 47 "-1.36 (±6.19) n.s." "4.31 (±3.96) n.s."
-#> 53 "-3.12 (±6.95) n.s." "3.79 (±4.09) n.s."
-#> 59 "-0.6 (±7.48) n.s."  "4.84 (±4.32) n.s."
-#> 64 "-2.9 (±6.72) n.s."  "5.73 (±4.23) n.s."
-#> 72 "-0.28 (±5.29) n.s." "2.09 (±4.65) n.s."
+#> 26 "-2.18 (±5.52) n.s." "6.71 (±3.52) n.s."
+#> 29 "-2.05 (±5.86) n.s." "4.58 (±4) n.s."   
+#> 47 "-2.25 (±7.4) n.s."  "4.11 (±3.55) n.s."
+#> 53 "-1.96 (±5.34) n.s." "4.18 (±3.59) n.s."
+#> 59 "-0.42 (±8.7) n.s."  "4.53 (±4.25) n.s."
+#> 64 "-2.35 (±6.31) n.s." "6.63 (±3.47) n.s."
+#> 72 "-0.69 (±6.48) n.s." "1.67 (±4.9) n.s." 
 #> 
 #> $acrGenes
-#>        LCWT[2]                NDC[2]               
-#> Sum    "-13.14 (±25.34) n.s." "31.92 (±14.65) n.s."
-#> Mean   "-1.88 (±3.62) n.s."   "4.56 (±2.09) n.s."  
-#> Median "0 (±0) n.s."          "5 (±1.2) *"         
-#> Mode   "0 (±0) 0"             "5.29 (±1.59) *"     
-#> CV     "-13.73 (±90.42) n.s." "0.08 (±6.75) n.s."  
+#>        LCWT[2]               NDC[2]            
+#> Sum    "-11.9 (±26.71) n.s." "32.41 (±14.28) *"
+#> Mean   "-1.7 (±3.82) n.s."   "4.63 (±2.04) *"  
+#> Median "0 (±0) n.s."         "4.86 (±1.65) *"  
+#> Mode   "0 (±0) 0"            "6.29 (±1.99) *"  
+#> CV     "5.02 (±70.76) n.s."  "1.31 (±2.48) *"  
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.018  0.000
-#> 29   0.027  0.034
-#> 47   0.027  0.020
-#> 53   0.029  0.024
-#> 59   0.034  0.012
-#> 64   0.021  0.041
-#> 72   0.020  0.017
+#> 26   0.080  0.039
+#> 29   0.065  0.065
+#> 47   0.078  0.073
+#> 53   0.069  0.052
+#> 59   0.067  0.060
+#> 64   0.072  0.056
+#> 72   0.067  0.061
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.027  0.018
-#> Mean     0.027  0.018
-#> Median   0.702  0.256
-#> Mode     0.633  0.197
-#> CV       0.018  0.018
+#> Sum      0.092  0.069
+#> Mean     0.092  0.069
+#> Median   0.701  0.232
+#> Mode     0.539  0.207
+#> CV       0.052  0.069
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
@@ -140,7 +140,11 @@ statistic:
 
 ``` r
 graphics::par(mfrow=c(2,3), mar=c(5, 2, 5, 2) + 0.1)
-for (i in 1:6){plot(density(thomomys$metaData$NDC$dif[,i]),main=noquote(thomomys$inData$loci$dta[[i]]),xlab="",ylab="")}
+for (i in 1:6){
+plot(density(thomomys$metaData$NDC$dif[,i]),main=noquote(thomomys$inData$loci$dta[[i]]),xlab="",ylab="",xlim=c(-15,15))
+abline(v = 0, lty = "dotted", lwd = 1.5, col = "black")
+abline(v = stats::quantile (thomomys$metaData$NDC$dif[,i], probs=c(0.025)), lwd = 1, col = "red")
+abline(v = stats::quantile (thomomys$metaData$NDC$dif[,i], probs=c(0.975)), lwd = 1, col = "red")}
 par(mfrow=c(1,1))
 mtext("Difference values",side=1,cex=1.1,line=3)
 mtext("NDC",side=3,cex=1,line=4)

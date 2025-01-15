@@ -64,7 +64,7 @@ inFile <- "thomomys.xml"
 # replicates are preformed
 suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=10, error.rate = TRUE, save.metadata = TRUE))
 
-thomomys$results$alpha0.01
+thomomys$results$alpha0.05
 
 thomomys$results$legend
 ```
@@ -73,7 +73,11 @@ Plot distributions of difference values for each locus based on the NDC statisti
 
 ```{r example2}
 graphics::par(mfrow=c(2,3), mar=c(5, 2, 5, 2) + 0.1)
-for (i in 1:6){plot(density(thomomys$metaData$NDC$dif[,i]),main=noquote(thomomys$inData$loci$dta[[i]]),xlab="",ylab="")}
+for (i in 1:6){
+plot(density(thomomys$metaData$NDC$dif[,i]),main=noquote(thomomys$inData$loci$dta[[i]]),xlab="",ylab="",xlim=c(-15,15))
+abline(v = 0, lty = "dotted", lwd = 1.5, col = "black")
+abline(v = stats::quantile (thomomys$metaData$NDC$dif[,i], probs=c(0.025)), lwd = 1, col = "red")
+abline(v = stats::quantile (thomomys$metaData$NDC$dif[,i], probs=c(0.975)), lwd = 1, col = "red")}
 par(mfrow=c(1,1))
 mtext("Difference values",side=1,cex=1.1,line=3)
 mtext("NDC",side=3,cex=1,line=4)
