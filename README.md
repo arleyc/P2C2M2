@@ -97,39 +97,39 @@ suppressWarnings(thomomys <- p2c2m2.complete(inPath, inFile, num.reps=10, error.
 thomomys$results$alpha0.05
 #> $perGene
 #>    LCWT[2]              NDC[2]             
-#> 26 "-2.31 (±6.96) n.s." "6.98 (±3.6) n.s." 
-#> 29 "-1.34 (±4.81) n.s." "4.34 (±4.32) n.s."
-#> 47 "-1.35 (±6.25) n.s." "4.3 (±2.9) n.s."  
-#> 53 "-2.52 (±6.17) n.s." "4.27 (±3.7) n.s." 
-#> 59 "-0.92 (±7.94) n.s." "4.6 (±4.14) n.s." 
-#> 64 "-4.38 (±8.25) n.s." "6.12 (±4.38) n.s."
-#> 72 "-0.27 (±6.21) n.s." "1.73 (±4.62) n.s."
+#> 26 "-2.95 (±7.21) n.s." "6.91 (±3.46) n.s."
+#> 29 "-3.07 (±7.58) n.s." "4.6 (±4.21) n.s." 
+#> 47 "-1.33 (±5.81) n.s." "4.35 (±3.67) n.s."
+#> 53 "-2.66 (±6.97) n.s." "4.44 (±3.55) n.s."
+#> 59 "-1 (±7.97) n.s."    "4.24 (±4.25) n.s."
+#> 64 "-3.29 (±6.93) n.s." "5.78 (±3.76) n.s."
+#> 72 "-0.76 (±6.32) n.s." "2.12 (±4.07) n.s."
 #> 
 #> $acrGenes
-#>        LCWT[2]               NDC[2]               
-#> Sum    "-13.1 (±28.42) n.s." "32.34 (±15.92) n.s."
-#> Mean   "-1.87 (±4.06) n.s."  "4.62 (±2.27) n.s."  
-#> Median "0 (±0) 0"            "5.29 (±1.59) *"     
-#> Mode   "0 (±0) 0"            "4.57 (±1.85) *"     
-#> CV     "7.68 (±47.23) n.s."  "0.76 (±2.44) n.s."  
+#>        LCWT[2]                NDC[2]               
+#> Sum    "-15.06 (±30.01) n.s." "32.45 (±13.91) n.s."
+#> Mean   "-2.15 (±4.29) n.s."   "4.64 (±1.99) n.s."  
+#> Median "0 (±0) n.s."          "5.14 (±1.46) *"     
+#> Mode   "0 (±0) 0"             "6.29 (±1.76) *"     
+#> CV     "-0.03 (±65.66) n.s."  "0.77 (±2.44) n.s."  
 #> 
 #> $perGene.error
 #>    LCWT[2] NDC[2]
-#> 26   0.086  0.071
-#> 29   0.066  0.042
-#> 47   0.070  0.078
-#> 53   0.076  0.088
-#> 59   0.091  0.035
-#> 64   0.069  0.079
-#> 72   0.087  0.057
+#> 26   0.078  0.060
+#> 29   0.090  0.044
+#> 47   0.080  0.090
+#> 53   0.108  0.054
+#> 59   0.100  0.050
+#> 64   0.094  0.052
+#> 72   0.082  0.073
 #> 
 #> $acrGenes.error
 #>        LCWT[2] NDC[2]
-#> Sum      0.071  0.062
-#> Mean     0.071  0.062
-#> Median   0.594  0.302
-#> Mode     0.517  0.240
-#> CV       0.053  0.062
+#> Sum      0.088  0.075
+#> Mean     0.088  0.075
+#> Median   0.722  0.231
+#> Mode     0.594  0.209
+#> CV       0.068  0.075
 
 thomomys$results$legend
 #> [1] "Differences between the posterior and the posterior predictive distributions per locus and across loci. Each cell contains the following information in said order: mean, standard deviation, significance level. Error rates (if estimated with option error.rate=TRUE) are based on differences between the pods and the posterior predictive distributions. Codes in square brackets indicate the number of tails. Alpha values are automatically adjusted for the number of tails."
@@ -178,6 +178,7 @@ Biology, 63, 322–333.
 ## Citation
 
 Villamil, J., Morando, M., Avila, L.J., Lanna, F.M., Fonseca, E.M.,
-Sites, Jr., J.W., Camargo, A. Revisiting the Multispecies Coalescent
-Model fit with an example from a complete molecular phylogeny of the
-Liolaemus wiegmannii species group (Squamata: Liolaemidae), in review.
+Sites, Jr., J.W., Camargo, A. (2025) Revisiting the Multispecies
+Coalescent Model fit with an example from a complete molecular phylogeny
+of the <em>Liolaemus wiegmannii</em> species group (Squamata:
+Liolaemidae). Systematic Biology, <doi:10.1093/sysbio/syaf048>.
